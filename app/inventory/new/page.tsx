@@ -193,8 +193,8 @@ export default function NewPurchaseReceiptPage() {
                         {/* Purchase Receipt Details */}
                         <Card>
                             <CardHeader>
-                                <CardTitle>Receipt Pembelian</CardTitle>
-                                <CardDescription>Enter the details of the purchase receipt</CardDescription>
+                                <CardTitle>Pembelian</CardTitle>
+                                <CardDescription>Masukkan detail pembelian</CardDescription>
                             </CardHeader>
                             <CardContent>
                                 <div className="grid gap-4 sm:grid-cols-2">
@@ -210,7 +210,7 @@ export default function NewPurchaseReceiptPage() {
                                     </div>
 
                                     <div className="grid gap-2">
-                                        <Label htmlFor="vendor-name">Nama Vendor*</Label>
+                                        <Label htmlFor="vendor-name">Nama Suplaier*</Label>
                                         <Input
                                             id="vendor-name"
                                             value={vendorName}
@@ -232,12 +232,12 @@ export default function NewPurchaseReceiptPage() {
                                     </div>
 
                                     <div className="grid gap-2 sm:col-span-2">
-                                        <Label htmlFor="notes">Notes</Label>
+                                        <Label htmlFor="notes">Catatan</Label>
                                         <Textarea
                                             id="notes"
                                             value={notes}
                                             onChange={(e) => setNotes(e.target.value)}
-                                            placeholder="Additional notes about this purchase"
+                                            placeholder="Masukkan keterangan tambahan"
                                             rows={3}
                                         />
                                     </div>
@@ -248,7 +248,7 @@ export default function NewPurchaseReceiptPage() {
                         {/* Spare Parts Items */}
                         <Card>
                             <CardHeader>
-                                <CardTitle>Item Suku Cadang</CardTitle>
+                                <CardTitle>Suku Cadang</CardTitle>
                                 <CardDescription>Tambahkan detail suku cadang</CardDescription>
                             </CardHeader>
                             <CardContent>
@@ -262,7 +262,7 @@ export default function NewPurchaseReceiptPage() {
                                             </p>
                                             <div className="mt-6">
                                                 <Button type="button" onClick={addItem}>
-                                                    <Plus className="h-4 w-4 mr-2" /> Tambah Item
+                                                    <Plus className="h-4 w-4 mr-2" /> Tambah Suku Cadang
                                                 </Button>
                                             </div>
                                         </div>
@@ -271,7 +271,7 @@ export default function NewPurchaseReceiptPage() {
                                             <Card key={`${item.id}-${index}`} className="border border-muted">
                                                 <CardHeader className="pb-2">
                                                     <div className="flex justify-between items-center">
-                                                        <CardTitle className="text-lg">Item #{index + 1}</CardTitle>
+                                                        <CardTitle className="text-lg">Suku Cadang #{index + 1}</CardTitle>
                                                         <Button
                                                             type="button"
                                                             variant="ghost"
@@ -297,7 +297,7 @@ export default function NewPurchaseReceiptPage() {
                                                         </div>
 
                                                         <div className="grid gap-2">
-                                                            <Label htmlFor={`name-${index}`}>Nama Item*</Label>
+                                                            <Label htmlFor={`name-${index}`}>Nama Suku Cadang*</Label>
                                                             <Input
                                                                 id={`name-${index}`}
                                                                 value={item.name}
@@ -308,7 +308,7 @@ export default function NewPurchaseReceiptPage() {
                                                         </div>
 
                                                         <div className="grid gap-2">
-                                                            <Label htmlFor={`quantity-${index}`}>Quantity *</Label>
+                                                            <Label htmlFor={`quantity-${index}`}>Jumlah Barang*</Label>
                                                             <Input
                                                                 id={`quantity-${index}`}
                                                                 type="number"
@@ -320,7 +320,7 @@ export default function NewPurchaseReceiptPage() {
                                                         </div>
 
                                                         <div className="grid gap-2">
-                                                            <Label htmlFor={`unit-price-${index}`}>Harga Unit *</Label>
+                                                            <Label htmlFor={`unit-price-${index}`}>Harga Satuan*</Label>
                                                             <Input
                                                                 id={`unit-price-${index}`}
                                                                 type="number"
@@ -333,12 +333,12 @@ export default function NewPurchaseReceiptPage() {
                                                         </div>
 
                                                         <div className="grid gap-2 sm:col-span-2">
-                                                            <Label htmlFor={`description-${index}`}>Deskripsi</Label>
+                                                            <Label htmlFor={`description-${index}`}>Penjelasan</Label>
                                                             <Textarea
                                                                 id={`description-${index}`}
                                                                 value={item.description}
                                                                 onChange={(e) => updateItem(index, "description", e.target.value)}
-                                                                placeholder="Item description"
+                                                                placeholder="Penjelasan tambahan"
                                                                 rows={2}
                                                             />
                                                         </div>
@@ -349,7 +349,7 @@ export default function NewPurchaseReceiptPage() {
                                                     {/* Compatible Cars Section */}
                                                     <div>
                                                         <div className="flex justify-between items-center mb-2">
-                                                            <Label className="text-base">Kompatibel Kendaraan</Label>
+                                                            <Label className="text-base">Kendaraan Setara</Label>
                                                             <Button
                                                                 type="button"
                                                                 variant="outline"
@@ -363,7 +363,7 @@ export default function NewPurchaseReceiptPage() {
                                                         {/* Compatible Cars List */}
                                                         <div className="flex flex-wrap gap-2 mb-4">
                                                             {item.compatibilityCars.length === 0 ? (
-                                                                <p className="text-sm text-muted-foreground">Kompatibel kendaraan tidak ditambahkan</p>
+                                                                <p className="text-sm text-muted-foreground">Kendaraan setara tidak ditambahkan</p>
                                                             ) : (
                                                                 item.compatibilityCars.map((car, carIndex) => (
                                                                     <Badge key={car.id} variant="secondary" className="flex items-center gap-1">
@@ -481,7 +481,7 @@ export default function NewPurchaseReceiptPage() {
                             </Button>
                             <Button type="submit" disabled={isSubmitting}>
                                 {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                                Simpan Receipt
+                                Simpan Nota Pembelian
                             </Button>
                         </div>
                     </div>

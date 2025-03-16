@@ -20,8 +20,6 @@ import { Loader2, Plus, Printer, ArrowRight, Search, Edit, Eye } from "lucide-re
 import { getEstimations, convertToWorkOrder } from "@/lib/customer-actions"
 import { PrintLayout } from "@/components/print-layout"
 // import { useAuth } from "@/components/auth-provider"
-import { PageContainer } from "@/components/page-container"
-import { PageHeader } from "@/components/page-header"
 import { formatDate } from "@/lib/inventory-utils"
 import Layout from "@/components/kokonutui/layout"
 
@@ -120,7 +118,7 @@ export default function EstimationsPage() {
                 alert(`Successfully converted to Work Order: ${result.workOrderId}`)
 
                 // Redirect to work orders page
-                router.push("/services/workorders")
+                router.push("/workorders")
             } else {
                 console.error("Failed to convert to work order:", result.error)
                 alert("Failed to convert to work order. Please try again.")
@@ -166,7 +164,7 @@ export default function EstimationsPage() {
                             {/* <Link href="/services">
                             <Button variant="outline">Customers</Button>
                         </Link> */}
-                            <Link href="/services/workorders">
+                            <Link href="/workorders">
                                 <Button variant="outline">Work Orders</Button>
                             </Link>
                         </div>

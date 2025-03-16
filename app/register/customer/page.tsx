@@ -13,15 +13,18 @@ import { Textarea } from "@/components/ui/textarea"
 import { saveCustomerDetails } from "@/lib/customer-actions"
 import { type ComboboxOption } from "@/components/ui/combobox"
 import Layout from "@/components/kokonutui/layout"
+import validator from "validator"
+
+
 const formSchema = z.object({
-    name: z.string().min(2, "Format nama tidak benar"),
+    name: z.string().min(2, "Nama min 2 huruf"),
     // email: z.string().email("Invalid email address"),
-    phone: z.string().min(10, "Phone number must be at least 10 digits"),
+    phone: z.string().refine(validator.isMobilePhone),
     address: z.string().min(5, "Alamat tidak lengkap"),
-    ktp: z.string().min(14, "Nomor KTP tidak benar"),
-    kota: z.string().min(5, "Address must be at least 5 characters"),
-    dob: z.string().min(5, "Address must be at least 5 characters"),
-    kecamatan: z.string().min(5, "Address must be at least 5 characters"),
+    ktp: z.string().min(16, "Nomor KTP harus 16 digit").max(16, "Nomor KTP harus 16 digit"),
+    kota: z.string().min(5, "Kota min 5 huruf"),
+    dob: z.string().min(5, "Tgl. lahir minimal 5 huruf"),
+    kecamatan: z.string().min(5, "Kecamatan min 5 huruf")
 })
 
 type FormValues = z.infer<typeof formSchema>
@@ -104,7 +107,7 @@ export default function CustomerRegistrationPage() {
                 <Card className="mb-6">
                     <CardHeader>
                         <CardTitle>Halaman Customer</CardTitle>
-                        <CardDescription>Langkah 1 dari 3: Input data personal</CardDescription>
+                        <CardDescription>Langkah 1 dari 3: Input data pribadi</CardDescription>
                     </CardHeader>
 
                     <Form {...form}>

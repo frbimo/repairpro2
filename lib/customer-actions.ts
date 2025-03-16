@@ -255,7 +255,7 @@ export async function updateServiceDetails(serviceId: string, data: z.infer<any>
         revalidatePath("/services")
         revalidatePath(`/services/${serviceId}`)
         revalidatePath("/services/estimations")
-        revalidatePath("/services/workorders")
+        revalidatePath("/workorders")
 
         return { success: true }
     } catch (error) {
@@ -358,7 +358,7 @@ export async function convertToWorkOrder(serviceId: string) {
 
         revalidatePath("/services")
         revalidatePath("/services/estimations")
-        revalidatePath("/services/workorders")
+        revalidatePath("/workorders")
 
         return result
     } catch (error) {

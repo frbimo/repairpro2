@@ -121,13 +121,13 @@ export default function Sidebar() {
                 </div>
                 <div className="space-y-1">
                   <NavItem href="/inventory/new" icon={Wallet}>
-                    Restok
+                    Pengadaan
                   </NavItem>
                   <NavItem href="/inventory/search" icon={Receipt}>
-                    Pencarian
+                    Pilihan
                   </NavItem>
                   <NavItem href="/inventory/manage" icon={CreditCard}>
-                    Aging Stok
+                    Aging Stock
                   </NavItem>
                 </div>
               </div>

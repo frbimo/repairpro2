@@ -66,7 +66,7 @@ export default function WorkOrdersPage() {
     }, [searchTerm, workOrders])
 
     const handleViewWorkOrder = (id: string) => {
-        router.push(`/services/workorders/${id}`)
+        router.push(`/workorders/${id}`)
     }
 
     // const handleEditWorkOrder = (id: string) => {

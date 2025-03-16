@@ -60,7 +60,7 @@ export default function ServiceRegistrationPage() {
 
         if (!customerId || !vehicleId) {
             // If missing IDs, redirect back to customer registration
-            router.push("/services/register/customer")
+            router.push("register/customer")
             return
         }
 
@@ -145,7 +145,7 @@ export default function ServiceRegistrationPage() {
     const handleBack = () => {
         // Keep the customer ID but clear the vehicle ID
         sessionStorage.removeItem("registrationVehicleId")
-        router.push("/services/register/vehicle")
+        router.push("/register/vehicle")
     }
 
     if (isLoading) {
@@ -173,8 +173,8 @@ export default function ServiceRegistrationPage() {
 
                 <Card className="mb-6">
                     <CardHeader>
-                        <CardTitle>Detail Servis</CardTitle>
-                        <CardDescription>Langkah 3 dari 3: Masukan service detail</CardDescription>
+                        <CardTitle>Detail Perbaikkan</CardTitle>
+                        <CardDescription>Langkah 3 dari 3: Masukan detail perbaikkan</CardDescription>
                     </CardHeader>
 
                     <CardContent className="space-y-6">
@@ -206,7 +206,7 @@ export default function ServiceRegistrationPage() {
                                         <div className="flex items-center justify-between mb-2">
                                             <FormLabel>Rincian Servis</FormLabel>
                                             <Button type="button" variant="outline" size="sm" onClick={addServiceType}>
-                                                <Plus className="h-4 w-4 mr-1" /> Tambah tipe servis
+                                                <Plus className="h-4 w-4 mr-1" /> Tambah Jenis Perbaikkan
                                             </Button>
                                         </div>
                                         <FormMessage>{form.formState.errors.serviceTypes?.message}</FormMessage>
@@ -219,11 +219,11 @@ export default function ServiceRegistrationPage() {
                                                         name={`serviceTypes.${index}.name`}
                                                         render={({ field }) => (
                                                             <FormItem>
-                                                                <FormLabel>Tipe Service</FormLabel>
+                                                                <FormLabel>Jenis Perbaikkan</FormLabel>
                                                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                                     <FormControl>
                                                                         <SelectTrigger>
-                                                                            <SelectValue placeholder="Pilih tipe service" />
+                                                                            <SelectValue placeholder="Pilih jenis perbaikkan" />
                                                                         </SelectTrigger>
                                                                     </FormControl>
                                                                     <SelectContent>
@@ -248,7 +248,7 @@ export default function ServiceRegistrationPage() {
                                                         name={`serviceTypes.${index}.description`}
                                                         render={({ field }) => (
                                                             <FormItem>
-                                                                <FormLabel>Penjelasan service (Optional)</FormLabel>
+                                                                <FormLabel>Penjelasan item perbaikkan (Optional)</FormLabel>
                                                                 <FormControl>
                                                                     <Input placeholder="" {...field} />
                                                                 </FormControl>
@@ -276,7 +276,7 @@ export default function ServiceRegistrationPage() {
                                         name="description"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Catatan Tambahan</FormLabel>
+                                                <FormLabel>Saran Perbaikkan</FormLabel>
                                                 <FormControl>
                                                     <Textarea
                                                         placeholder=""
@@ -305,9 +305,9 @@ export default function ServiceRegistrationPage() {
 
                                     <div>
                                         <div className="flex items-center justify-between mb-2">
-                                            <FormLabel>Part yang dibutuhkan</FormLabel>
+                                            <FormLabel>Suku cadang yang dibutuhkan</FormLabel>
                                             <Button type="button" variant="outline" size="sm" onClick={addPart}>
-                                                <Plus className="h-4 w-4 mr-1" /> Tambah Part
+                                                <Plus className="h-4 w-4 mr-1" /> Tambah Suku Cadang
                                             </Button>
                                         </div>
 
@@ -315,8 +315,8 @@ export default function ServiceRegistrationPage() {
                                             <Table>
                                                 <TableHeader>
                                                     <TableRow>
-                                                        <TableHead>Part</TableHead>
-                                                        <TableHead>Quantity</TableHead>
+                                                        <TableHead>Suku Cadang</TableHead>
+                                                        <TableHead>Jumlah Barang</TableHead>
                                                         <TableHead className="w-[80px]"></TableHead>
                                                     </TableRow>
                                                 </TableHeader>
@@ -332,7 +332,7 @@ export default function ServiceRegistrationPage() {
                                                                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                                                 <FormControl>
                                                                                     <SelectTrigger>
-                                                                                        <SelectValue placeholder="Select part" />
+                                                                                        <SelectValue placeholder="Pilih suku cadang" />
                                                                                     </SelectTrigger>
                                                                                 </FormControl>
                                                                                 <SelectContent>

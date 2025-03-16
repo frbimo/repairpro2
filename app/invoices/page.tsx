@@ -10,8 +10,6 @@ import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Loader2, Search, Printer, FileText, DollarSign } from "lucide-react"
-import { PageContainer } from "@/components/page-container"
-import { PageHeader } from "@/components/page-header"
 import { formatDate } from "@/lib/inventory-utils"
 import Layout from "@/components/kokonutui/layout"
 
