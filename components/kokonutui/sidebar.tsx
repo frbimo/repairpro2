@@ -100,16 +100,16 @@ export default function Sidebar() {
                   Servis
                 </div>
                 <div className="space-y-1">
-                  <NavItem href="#" icon={Home}>
+                  <NavItem href="/register/customer" icon={Home}>
                     Registrasi Baru
                   </NavItem>
-                  <NavItem href="#" icon={BarChart2}>
+                  <NavItem href="/estimations" icon={BarChart2}>
                     Estimasi
                   </NavItem>
-                  <NavItem href="#" icon={Building2}>
+                  <NavItem href="/workorders" icon={Building2}>
                     Work Order
                   </NavItem>
-                  <NavItem href="#" icon={Folder}>
+                  <NavItem href="/invoices" icon={Folder}>
                     Invoice
                   </NavItem>
                 </div>
@@ -120,13 +120,13 @@ export default function Sidebar() {
                   Suku Cadang
                 </div>
                 <div className="space-y-1">
-                  <NavItem href="#" icon={Wallet}>
+                  <NavItem href="/inventory/new" icon={Wallet}>
                     Restok
                   </NavItem>
-                  <NavItem href="#" icon={Receipt}>
+                  <NavItem href="/inventory/search" icon={Receipt}>
                     Pencarian
                   </NavItem>
-                  <NavItem href="#" icon={CreditCard}>
+                  <NavItem href="/inventory/manage" icon={CreditCard}>
                     Aging Stok
                   </NavItem>
                 </div>
