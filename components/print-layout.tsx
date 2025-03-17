@@ -1,12 +1,13 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { formatDate } from "@/lib/inventory-utils"
-import { getQRCodeUrl } from "@/lib/qr-utils"
 import { Printer } from "lucide-react"
+import QRCode from "qrcode"
+
 import Image from "next/image"
 interface PrintLayoutProps {
     type: "estimation" | "workOrder"
@@ -41,6 +42,7 @@ interface PrintLayoutProps {
     createdAt: Date
 }
 
+
 export function PrintLayout({
     type,
     id,
@@ -54,6 +56,28 @@ export function PrintLayout({
     createdAt,
 }: PrintLayoutProps) {
     const printRef = useRef<HTMLDivElement>(null)
+    const [qrCodeUrl, setQrCodeUrl] = useState("")
+
+    // const qrCodeUrl = QRCode.create(id)
+    useEffect(() => {
+        const fetchQRCode = async () => {
+            try {
+                const url = await QRCode.toDataURL(id)
+                setQrCodeUrl(url)
+            } catch (err) {
+                console.error(err)
+            }
+        }
+        fetchQRCode()
+    }, [id])
+
+    // const generateQR = async (text: string) => {
+    //     try {
+    //         console.log(await QRCode.toDataURL(text))
+    //     } catch (err) {
+    //         console.error(err)
+    //     }
+    // }
 
     const handlePrint = () => {
         const content = printRef.current
@@ -160,7 +184,7 @@ export function PrintLayout({
             <div ref={printRef} className="bg-white p-6 border rounded-lg">
                 <div className="flex justify-between items-start mb-6">
                     <div>
-                        <h1 className="text-2xl font-bold">Stepha Autorepair</h1>
+                        <h1 className="text-2xl font-bold">Autorepair</h1>
                         <p className="text-sm text-muted-foreground">123 Main Street, Anytown, USA</p>
                         <p className="text-sm text-muted-foreground">(123) 456-7890</p>
                     </div>
@@ -177,7 +201,7 @@ export function PrintLayout({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <Card>
                         <CardContent className="p-4">
-                            <h3 className="font-semibold mb-2">Customer Information</h3>
+                            <h3 className="font-semibold mb-2">Informasi Customer</h3>
                             <p>
                                 <strong>Name:</strong> {customer.name}
                             </p>
@@ -287,12 +311,11 @@ export function PrintLayout({
                 <div className="flex justify-center mt-8">
                     <div className="text-center">
                         <Image
-                            src={getQRCodeUrl(id) || "/placeholder.svg"}
+                            src={qrCodeUrl || "/placeholder.svg"}
                             alt={`QR Code for ${id}`}
                             className="mx-auto mb-2"
                             width={100}
                             height={100}
-                            placeholder="blur"
                             priority={false}
                         />
                         <p className="text-sm text-muted-foreground">{id}</p>

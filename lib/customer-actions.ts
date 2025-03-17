@@ -356,8 +356,8 @@ export async function convertToWorkOrder(serviceId: string) {
             }
         }
 
-        revalidatePath("/services")
-        revalidatePath("/services/estimations")
+        // revalidatePath("/services")
+        revalidatePath("/estimations")
         revalidatePath("/workorders")
 
         return result

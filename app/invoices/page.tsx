@@ -134,7 +134,7 @@ export default function InvoicesPage() {
             <div className="container mx-auto">
                 <div className="flex justify-between items-center mb-6">
                     <div className="flex items-center gap-4">
-                        <h1 className="text-3xl font-bold">Servis</h1>
+                        <h1 className="text-3xl font-bold">Perbaikkan</h1>
                         {/*         
         <PageContainer>
             <PageHeader title="Invoices">
@@ -326,10 +326,10 @@ export default function InvoicesPage() {
                                     </div>
                                 </div>
 
-                                <div className="mb-8">
+                                {/* <div className="mb-8">
                                     <h4 className="font-bold mb-2">Payment Status:</h4>
                                     <p>{getStatusBadge(selectedInvoice.status)}</p>
-                                </div>
+                                </div> */}
 
                                 <div className="text-center text-gray-500 text-sm mt-8">
                                     <p>Thank you for your business!</p>

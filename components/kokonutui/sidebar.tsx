@@ -97,7 +97,7 @@ export default function Sidebar() {
             <div className="space-y-6">
               <div>
                 <div className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                  Servis
+                  Perbaikkan
                 </div>
                 <div className="space-y-1">
                   <NavItem href="/register/customer" icon={Home}>

@@ -204,7 +204,7 @@ export default function ServiceRegistrationPage() {
                                     {/* Service Types Section */}
                                     <div>
                                         <div className="flex items-center justify-between mb-2">
-                                            <FormLabel>Rincian Servis</FormLabel>
+                                            <FormLabel>Rincian Perbaikkan</FormLabel>
                                             <Button type="button" variant="outline" size="sm" onClick={addServiceType}>
                                                 <Plus className="h-4 w-4 mr-1" /> Tambah Jenis Perbaikkan
                                             </Button>
@@ -373,7 +373,7 @@ export default function ServiceRegistrationPage() {
                                             </Table>
                                         ) : (
                                             <div className="text-center py-4 border rounded-md text-muted-foreground">
-                                                Tidak ada part. Klik "Tambah Part" untuk memilih part untuk servis ini.
+                                                Tidak ada part. Klik "Tambah Part" untuk memilih part untuk perbaikkan ini.
                                             </div>
                                         )}
                                     </div>
