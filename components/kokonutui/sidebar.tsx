@@ -20,9 +20,13 @@ import { Home } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
+import cn from "classnames"
 
 export default function Sidebar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  // const router = useRouter()
+  const currentPath = usePathname()
 
   function handleNavigation() {
     setIsMobileMenuOpen(false)
@@ -37,11 +41,17 @@ export default function Sidebar() {
     icon: any
     children: React.ReactNode
   }) {
+    const isActive = currentPath === href
     return (
       <Link
         href={href}
         onClick={handleNavigation}
-        className="flex items-center px-3 py-2 text-sm rounded-md transition-colors text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-[#1F1F23]"
+        className={cn(
+          "flex items-center px-3 py-2 text-sm rounded-md transition-colors",
+          isActive
+            ? "bg-primary text-white"
+            : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-[#1F1F23]"
+        )}
       >
         <Icon className="h-4 w-4 mr-3 flex-shrink-0" />
         {children}
